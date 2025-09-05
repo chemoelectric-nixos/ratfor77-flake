@@ -1,5 +1,18 @@
 = The public domain Ratfor preprocessor
 
+You can download a tarball from one of the tagged versions, and then
+run the configure script. Configuration is controlled by the settings
+of some of what are called ‘precious variables’ (in Autoconf
+terminology). Alternatively, you can use a pre-configured flake
+directly from the GitHub repository. For example:
+
+[source,nix]
+----
+ratfor77 = {
+  url = "github:chemoelectric-nixos/ratfor77-flake/v1.0.0?dir=build%2Fx86_64-linux%2Frelease-25.05";
+};
+----
+
 [literal]
 ----
 NAME
