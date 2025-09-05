@@ -2,7 +2,7 @@
 
 You can download a tarball from one of the tagged versions, and then
 run the configure script. Configuration is controlled by the settings
-of some of what are called ‘precious variables’ (in Autoconf
+of what are called ‘precious variables’ (in Autoconf
 terminology). Alternatively, you can use a pre-configured flake
 directly from the GitHub repository. For example:
 
