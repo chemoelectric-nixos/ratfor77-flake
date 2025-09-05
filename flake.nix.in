@@ -23,37 +23,26 @@
   description = "A Nix flake for ratfor77";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/release-25.05";
-    flake-utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "github:NixOS/nixpkgs/@NIXPKGS_VERSION@";
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      flake-utils,
-      ...
-    }:
+    { self, nixpkgs, ... }:
+    let
+      lib = nixpkgs.lib;
+      package-owner = "chemoelectric";
+      package-name = "ratfor77";
+      package-revision = "55448b9cc13e1b71e100063a97001800d7db790e";
+      package-hash = "sha256-zXT04oMtN2fHlciZqh5QsGjU+94aqVDJn8DfPB6CPhA=";
+      package-homepage = "https://sourceforge.net/p/${package-owner}/${package-name}/";
+      pkgs = import nixpkgs { system = "@SYSTEM@"; };
+      cc = "${pkgs.gcc}/bin/gcc";
+      make = "${pkgs.gnumake}/bin/make";
+      install = "${pkgs.coreutils}/bin/install";
+    in {
+        packages."@SYSTEM@" = rec {
 
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        lib = nixpkgs.lib;
-        package-owner = "chemoelectric";
-        package-name = "ratfor77";
-        package-revision = "55448b9cc13e1b71e100063a97001800d7db790e";
-        package-hash = "sha256-zXT04oMtN2fHlciZqh5QsGjU+94aqVDJn8DfPB6CPhA=";
-        package-homepage = "https://sourceforge.net/p/${package-owner}/${package-name}/";
-        pkgs = import nixpkgs { inherit system; };
-        cc = "${pkgs.gcc}/bin/gcc";
-        make = "${pkgs.gnumake}/bin/make";
-        install = "${pkgs.coreutils}/bin/install";
-      in
-      rec {
-
-        packages = {
-
-          default = packages.ratfor77;
+          default = ratfor77;
 
           ratfor77 = pkgs.stdenv.mkDerivation (var: {
 
@@ -95,10 +84,7 @@
               mainProgram = package-name;
               platforms = lib.platforms.linux;
             };
-
           });
-
         };
-      }
-    );
+      };
 }
