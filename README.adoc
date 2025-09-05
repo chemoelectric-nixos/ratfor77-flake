@@ -13,6 +13,8 @@ ratfor77 = {
 };
 ----
 
+***
+
 [literal]
 ----
 NAME
@@ -22,7 +24,7 @@ SYNOPSIS
  ratfor [-l n] [-C] [-o output] input
 
 PARAMETERS
- -l n        user sets strating label n
+ -l n        user sets starting label n
  -o output   specify output file, otherwise it is stdout 
  -C          keep comments in (useful for compiler directives)
 
