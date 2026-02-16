@@ -1,4 +1,4 @@
-# Copyright © 2025 Barry Schwartz
+# Copyright © 2025, 2026dvm Barry Schwartz
 #
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
@@ -35,7 +35,7 @@
       package-revision = "55448b9cc13e1b71e100063a97001800d7db790e";
       package-hash = "sha256-zXT04oMtN2fHlciZqh5QsGjU+94aqVDJn8DfPB6CPhA=";
       package-homepage = "https://sourceforge.net/p/${package-owner}/${package-name}/";
-      pkgs = import nixpkgs { system = "x86_64-linux"; };
+      pkgs = nixpkgs.legacyPackages."x86_64-linux";
       cc = "${pkgs.gcc}/bin/gcc";
       make = "${pkgs.gnumake}/bin/make";
       install = "${pkgs.coreutils}/bin/install";
